@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
+import net.minecraft.util.com.google.common.collect.Iterators;
+import net.minecraft.util.com.google.common.collect.Lists;
+
 import java.util.Arrays;
 import java.util.IllegalFormatException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import net.minecraft.util.com.google.common.collect.Iterators;
-import net.minecraft.util.com.google.common.collect.Lists;
 
 public class ChatMessage extends ChatBaseComponent {
 
@@ -50,13 +50,13 @@ public class ChatMessage extends ChatBaseComponent {
 
         try {
             this.b(LocaleI18n.get(this.d));
-        } catch (ChatMessageException throw) {
+        } catch (ChatMessageException t) {
             this.b.clear();
 
             try {
                 this.b(LocaleI18n.b(this.d));
             } catch (ChatMessageException chatmessageexception1) {
-                throw throw;
+                throw t;
             }
         }
     }
