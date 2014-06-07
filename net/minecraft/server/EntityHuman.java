@@ -220,12 +220,12 @@ public abstract class EntityHuman extends EntityLiving implements ICommandListen
             for (int j = 0; j < i; ++j) {
                 Vec3D vec3d = Vec3D.a(((double) this.random.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
 
-                vec3d.a(-this.pitch * 3.1415927F / 180.0F);
-                vec3d.b(-this.yaw * 3.1415927F / 180.0F);
+                vec3d.a(-this.pitch * Math.PI / 180.0F);
+                vec3d.b(-this.yaw * Math.PI / 180.0F);
                 Vec3D vec3d1 = Vec3D.a(((double) this.random.nextFloat() - 0.5D) * 0.3D, (double) (-this.random.nextFloat()) * 0.6D - 0.3D, 0.6D);
 
-                vec3d1.a(-this.pitch * 3.1415927F / 180.0F);
-                vec3d1.b(-this.yaw * 3.1415927F / 180.0F);
+                vec3d1.a(-this.pitch * Math.PI / 180.0F);
+                vec3d1.b(-this.yaw * Math.PI / 180.0F);
                 vec3d1 = vec3d1.add(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
                 String s = "iconcrack_" + Item.b(itemstack.getItem());
 
@@ -334,7 +334,7 @@ public abstract class EntityHuman extends EntityLiving implements ICommandListen
 
         this.i((float) attributeinstance.getValue());
         float f = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
-        float f1 = (float) Math.atan(-this.motY * 0.20000000298023224D) * 15.0F;
+        float f1 = (float) Math.atan(-this.motY * 0.2) * 15.0F;
 
         if (f > 0.1F) {
             f = 0.1F;
@@ -395,7 +395,7 @@ public abstract class EntityHuman extends EntityLiving implements ICommandListen
         super.die(damagesource);
         this.a(0.2F, 0.2F);
         this.setPosition(this.locX, this.locY, this.locZ);
-        this.motY = 0.10000000149011612D;
+        this.motY = 0.1;
         if (this.getName().equals("Notch")) {
             this.a(new ItemStack(Items.APPLE, 1), true, false);
         }
@@ -405,8 +405,8 @@ public abstract class EntityHuman extends EntityLiving implements ICommandListen
         }
 
         if (damagesource != null) {
-            this.motX = (double) (-MathHelper.cos((this.az + this.yaw) * 3.1415927F / 180.0F) * 0.1F);
-            this.motZ = (double) (-MathHelper.sin((this.az + this.yaw) * 3.1415927F / 180.0F) * 0.1F);
+            this.motX = (double) (-MathHelper.cos((this.az + this.yaw) * Math.PI / 180.0F) * 0.1F);
+            this.motZ = (double) (-MathHelper.sin((this.az + this.yaw) * Math.PI / 180.0F) * 0.1F);
         } else {
             this.motX = this.motZ = 0.0D;
         }
@@ -458,7 +458,7 @@ public abstract class EntityHuman extends EntityLiving implements ICommandListen
         } else if (itemstack.count == 0) {
             return null;
         } else {
-            EntityItem entityitem = new EntityItem(this.world, this.locX, this.locY - 0.30000001192092896D + (double) this.getHeadHeight(), this.locZ, itemstack);
+            EntityItem entityitem = new EntityItem(this.world, this.locX, this.locY - 0.3 + (double) this.getHeadHeight(), this.locZ, itemstack);
 
             entityitem.pickupDelay = 40;
             if (flag1) {
@@ -470,18 +470,18 @@ public abstract class EntityHuman extends EntityLiving implements ICommandListen
 
             if (flag) {
                 f1 = this.random.nextFloat() * 0.5F;
-                float f2 = this.random.nextFloat() * 3.1415927F * 2.0F;
+                float f2 = this.random.nextFloat() * Math.PI * 2.0F;
 
                 entityitem.motX = (double) (-MathHelper.sin(f2) * f1);
                 entityitem.motZ = (double) (MathHelper.cos(f2) * f1);
-                entityitem.motY = 0.20000000298023224D;
+                entityitem.motY = 0.2;
             } else {
                 f = 0.3F;
-                entityitem.motX = (double) (-MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * f);
-                entityitem.motZ = (double) (MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * f);
-                entityitem.motY = (double) (-MathHelper.sin(this.pitch / 180.0F * 3.1415927F) * f + 0.1F);
+                entityitem.motX = (double) (-MathHelper.sin(this.yaw / 180.0F * Math.PI) * MathHelper.cos(this.pitch / 180.0F * Math.PI) * f);
+                entityitem.motZ = (double) (MathHelper.cos(this.yaw / 180.0F * Math.PI) * MathHelper.cos(this.pitch / 180.0F * Math.PI) * f);
+                entityitem.motY = (double) (-MathHelper.sin(this.pitch / 180.0F * Math.PI) * f + 0.1F);
                 f = 0.02F;
-                f1 = this.random.nextFloat() * 3.1415927F * 2.0F;
+                f1 = this.random.nextFloat() * Math.PI * 2.0F;
                 f *= this.random.nextFloat();
                 entityitem.motX += Math.cos((double) f1) * (double) f;
                 entityitem.motY += (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.1F);
@@ -809,7 +809,7 @@ public abstract class EntityHuman extends EntityLiving implements ICommandListen
 
                     if (flag2) {
                         if (i > 0) {
-                            entity.g((double) (-MathHelper.sin(this.yaw * 3.1415927F / 180.0F) * (float) i * 0.5F), 0.1D, (double) (MathHelper.cos(this.yaw * 3.1415927F / 180.0F) * (float) i * 0.5F));
+                            entity.g((double) (-MathHelper.sin(this.yaw * Math.PI / 180.0F) * (float) i * 0.5F), 0.1D, (double) (MathHelper.cos(this.yaw * Math.PI / 180.0F) * (float) i * 0.5F));
                             this.motX *= 0.6D;
                             this.motZ *= 0.6D;
                             this.setSprinting(false);

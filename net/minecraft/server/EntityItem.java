@@ -18,14 +18,14 @@ public class EntityItem extends Entity {
     public EntityItem(World world, double d0, double d1, double d2) {
         super(world);
         this.e = 5;
-        this.c = (float) (Math.random() * 3.141592653589793D * 2.0D);
+        this.c = (float) (Math.random() * Math.PI * 2.0D);
         this.a(0.25F, 0.25F);
         this.height = this.length / 2.0F;
         this.setPosition(d0, d1, d2);
         this.yaw = (float) (Math.random() * 360.0D);
-        this.motX = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D));
-        this.motY = 0.20000000298023224D;
-        this.motZ = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D));
+        this.motX = (double) ((float) (Math.random() * 0.2 - 0.1));
+        this.motY = 0.2;
+        this.motZ = (double) ((float) (Math.random() * 0.2 - 0.1));
     }
 
     public EntityItem(World world, double d0, double d1, double d2, ItemStack itemstack) {
@@ -40,7 +40,7 @@ public class EntityItem extends Entity {
     public EntityItem(World world) {
         super(world);
         this.e = 5;
-        this.c = (float) (Math.random() * 3.141592653589793D * 2.0D);
+        this.c = (float) (Math.random() * Math.PI * 2.0D);
         this.a(0.25F, 0.25F);
         this.height = this.length / 2.0F;
     }
@@ -61,14 +61,14 @@ public class EntityItem extends Entity {
             this.lastX = this.locX;
             this.lastY = this.locY;
             this.lastZ = this.locZ;
-            this.motY -= 0.03999999910593033D;
+            this.motY -= 0.04;
             this.X = this.j(this.locX, (this.boundingBox.b + this.boundingBox.e) / 2.0D, this.locZ);
             this.move(this.motX, this.motY, this.motZ);
             boolean flag = (int) this.lastX != (int) this.locX || (int) this.lastY != (int) this.locY || (int) this.lastZ != (int) this.locZ;
 
             if (flag || this.ticksLived % 25 == 0) {
                 if (this.world.getType(MathHelper.floor(this.locX), MathHelper.floor(this.locY), MathHelper.floor(this.locZ)).getMaterial() == Material.LAVA) {
-                    this.motY = 0.20000000298023224D;
+                    this.motY = 0.2;
                     this.motX = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
                     this.motZ = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
                     this.makeSound("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
@@ -86,7 +86,7 @@ public class EntityItem extends Entity {
             }
 
             this.motX *= (double) f;
-            this.motY *= 0.9800000190734863D;
+            this.motY *= 0.98;
             this.motZ *= (double) f;
             if (this.onGround) {
                 this.motY *= -0.5D;

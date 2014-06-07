@@ -49,9 +49,9 @@ public class EntityFireworks extends Entity {
         this.move(this.motX, this.motY, this.motZ);
         float f = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 
-        this.yaw = (float) (Math.atan2(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
+        this.yaw = (float) (Math.atan2(this.motX, this.motZ) * 180.0D / Math.PI);
 
-        for (this.pitch = (float) (Math.atan2(this.motY, (double) f) * 180.0D / 3.1415927410125732D); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
+        for (this.pitch = (float) (Math.atan2(this.motY, (double) f) * 180.0D / Math.PI); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
             ;
         }
 

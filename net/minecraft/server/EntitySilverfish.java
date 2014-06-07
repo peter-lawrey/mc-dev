@@ -14,7 +14,7 @@ public class EntitySilverfish extends EntityMonster {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(8.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.6000000238418579D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.6);
         this.getAttributeInstance(GenericAttributes.e).setValue(1.0D);
     }
 

@@ -85,7 +85,7 @@ public abstract class EntityCreature extends EntityInsentient {
                 double d1 = vec3d.a - this.locX;
                 double d2 = vec3d.c - this.locZ;
                 double d3 = vec3d.b - (double) i;
-                float f2 = (float) (Math.atan2(d2, d1) * 180.0D / 3.1415927410125732D) - 90.0F;
+                float f2 = (float) (Math.atan2(d2, d1) * 180.0D / Math.PI) - 90.0F;
                 float f3 = MathHelper.g(f2 - this.yaw);
 
                 this.be = (float) this.getAttributeInstance(GenericAttributes.d).getValue();
@@ -103,8 +103,8 @@ public abstract class EntityCreature extends EntityInsentient {
                     double d5 = this.target.locZ - this.locZ;
                     float f4 = this.yaw;
 
-                    this.yaw = (float) (Math.atan2(d5, d4) * 180.0D / 3.1415927410125732D) - 90.0F;
-                    f3 = (f4 - this.yaw + 90.0F) * 3.1415927F / 180.0F;
+                    this.yaw = (float) (Math.atan2(d5, d4) * 180.0D / Math.PI) - 90.0F;
+                    f3 = (f4 - this.yaw + 90.0F) * Math.PI / 180.0F;
                     this.bd = -MathHelper.sin(f3) * this.be * 1.0F;
                     this.be = MathHelper.cos(f3) * this.be * 1.0F;
                 }

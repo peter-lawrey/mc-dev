@@ -22,7 +22,7 @@ public class EntitySpider extends EntityMonster {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(16.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.800000011920929D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.8);
     }
 
     protected Entity findTarget() {
@@ -65,9 +65,9 @@ public class EntitySpider extends EntityMonster {
                     double d1 = entity.locZ - this.locZ;
                     float f2 = MathHelper.sqrt(d0 * d0 + d1 * d1);
 
-                    this.motX = d0 / (double) f2 * 0.5D * 0.800000011920929D + this.motX * 0.20000000298023224D;
-                    this.motZ = d1 / (double) f2 * 0.5D * 0.800000011920929D + this.motZ * 0.20000000298023224D;
-                    this.motY = 0.4000000059604645D;
+                    this.motX = d0 / (double) f2 * 0.5D * 0.8 + this.motX * 0.2;
+                    this.motZ = d1 / (double) f2 * 0.5D * 0.8 + this.motZ * 0.2;
+                    this.motY = 0.4;
                 }
             } else {
                 super.a(entity, f);

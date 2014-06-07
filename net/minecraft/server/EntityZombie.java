@@ -35,9 +35,9 @@ public class EntityZombie extends EntityMonster {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.b).setValue(40.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.23000000417232513D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.23);
         this.getAttributeInstance(GenericAttributes.e).setValue(3.0D);
-        this.bb().b(bp).setValue(this.random.nextDouble() * 0.10000000149011612D);
+        this.bb().b(bp).setValue(this.random.nextDouble() * 0.1);
     }
 
     protected void c() {
@@ -174,8 +174,8 @@ public class EntityZombie extends EntityMonster {
                             this.world.addEntity(entityzombie);
                             entityzombie.setGoalTarget(entityliving);
                             entityzombie.a((GroupDataEntity) null);
-                            this.getAttributeInstance(bp).a(new AttributeModifier("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
-                            entityzombie.getAttributeInstance(bp).a(new AttributeModifier("Zombie reinforcement callee charge", -0.05000000074505806D, 0));
+                            this.getAttributeInstance(bp).a(new AttributeModifier("Zombie reinforcement caller charge", -0.05, 0));
+                            entityzombie.getAttributeInstance(bp).a(new AttributeModifier("Zombie reinforcement callee charge", -0.05, 0));
                             break;
                         }
                     }
@@ -369,7 +369,7 @@ public class EntityZombie extends EntityMonster {
             }
         }
 
-        this.getAttributeInstance(GenericAttributes.c).a(new AttributeModifier("Random spawn bonus", this.random.nextDouble() * 0.05000000074505806D, 0));
+        this.getAttributeInstance(GenericAttributes.c).a(new AttributeModifier("Random spawn bonus", this.random.nextDouble() * 0.05, 0));
         double d0 = this.random.nextDouble() * 1.5D * (double) this.world.b(this.locX, this.locY, this.locZ);
 
         if (d0 > 1.0D) {

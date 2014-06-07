@@ -89,9 +89,9 @@ public class VillageSiege {
 
                 while (true) {
                     if (i < 10) {
-                        this.g = chunkcoordinates.x + (int) ((double) (MathHelper.cos(this.world.random.nextFloat() * 3.1415927F * 2.0F) * f) * 0.9D);
+                        this.g = chunkcoordinates.x + (int) ((double) (MathHelper.cos(this.world.random.nextFloat() * Math.PI * 2.0F) * f) * 0.9D);
                         this.h = chunkcoordinates.y;
-                        this.i = chunkcoordinates.z + (int) ((double) (MathHelper.sin(this.world.random.nextFloat() * 3.1415927F * 2.0F) * f) * 0.9D);
+                        this.i = chunkcoordinates.z + (int) ((double) (MathHelper.sin(this.world.random.nextFloat() * Math.PI * 2.0F) * f) * 0.9D);
                         flag = false;
                         Iterator iterator1 = this.world.villages.getVillages().iterator();
 

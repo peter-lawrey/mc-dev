@@ -939,7 +939,7 @@ public abstract class World implements IBlockAccess {
 
     public int a(float f) {
         float f1 = this.c(f);
-        float f2 = 1.0F - (MathHelper.cos(f1 * 3.1415927F * 2.0F) * 2.0F + 0.5F);
+        float f2 = 1.0F - (MathHelper.cos(f1 * Math.PI * 2.0F) * 2.0F + 0.5F);
 
         if (f2 < 0.0F) {
             f2 = 0.0F;
@@ -967,7 +967,7 @@ public abstract class World implements IBlockAccess {
     public float d(float f) {
         float f1 = this.c(f);
 
-        return f1 * 3.1415927F * 2.0F;
+        return f1 * Math.PI * 2.0F;
     }
 
     public int h(int i, int j) {
@@ -2291,7 +2291,7 @@ public abstract class World implements IBlockAccess {
                 double d6 = d3;
 
                 if (entityhuman1.isSneaking()) {
-                    d6 = d3 * 0.800000011920929D;
+                    d6 = d3 * 0.8;
                 }
 
                 if (entityhuman1.isInvisible()) {

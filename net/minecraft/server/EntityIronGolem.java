@@ -79,7 +79,7 @@ public class EntityIronGolem extends EntityGolem {
 
         if (this.motX * this.motX + this.motZ * this.motZ > 2.500000277905201E-7D && this.random.nextInt(5) == 0) {
             int i = MathHelper.floor(this.locX);
-            int j = MathHelper.floor(this.locY - 0.20000000298023224D - (double) this.height);
+            int j = MathHelper.floor(this.locY - 0.2 - (double) this.height);
             int k = MathHelper.floor(this.locZ);
             Block block = this.world.getType(i, j, k);
 
@@ -109,7 +109,7 @@ public class EntityIronGolem extends EntityGolem {
         boolean flag = entity.damageEntity(DamageSource.mobAttack(this), (float) (7 + this.random.nextInt(15)));
 
         if (flag) {
-            entity.motY += 0.4000000059604645D;
+            entity.motY += 0.4;
         }
 
         this.makeSound("mob.irongolem.throw", 1.0F, 1.0F);

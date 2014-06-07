@@ -32,7 +32,7 @@ public class EntityWolf extends EntityTameableAnimal {
 
     protected void aC() {
         super.aC();
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.30000001192092896D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.3);
         if (this.isTamed()) {
             this.getAttributeInstance(GenericAttributes.a).setValue(20.0D);
         } else {
@@ -146,7 +146,7 @@ public class EntityWolf extends EntityTameableAnimal {
 
             if (this.bu > 0.4F) {
                 float f = (float) this.boundingBox.b;
-                int i = (int) (MathHelper.sin((this.bu - 0.4F) * 3.1415927F) * 7.0F);
+                int i = (int) (MathHelper.sin((this.bu - 0.4F) * Math.PI) * 7.0F);
 
                 for (int j = 0; j < i; ++j) {
                     float f1 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;

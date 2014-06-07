@@ -58,7 +58,7 @@ public class WorldGenStronghold extends StructureGenerator {
             Random random = new Random();
 
             random.setSeed(this.c.getSeed());
-            double d0 = random.nextDouble() * 3.141592653589793D * 2.0D;
+            double d0 = random.nextDouble() * Math.PI * 2.0D;
             int k = 1;
 
             for (int l = 0; l < this.g.length; ++l) {

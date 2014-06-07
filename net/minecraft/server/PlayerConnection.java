@@ -266,7 +266,7 @@ public class PlayerConnection implements PacketPlayInListener {
         this.z = d1;
         this.q = d2;
         this.player.setLocation(d0, d1, d2, f, f1);
-        this.player.playerConnection.sendPacket(new PacketPlayOutPosition(d0, d1 + 1.6200000047683716D, d2, f, f1, false));
+        this.player.playerConnection.sendPacket(new PacketPlayOutPosition(d0, d1 + 1.62, d2, f, f1, false));
     }
 
     public void a(PacketPlayInBlockDig packetplayinblockdig) {

@@ -128,8 +128,8 @@ public class EntityChicken extends EntityAnimal {
 
     public void ab() {
         super.ab();
-        float f = MathHelper.sin(this.aM * 3.1415927F / 180.0F);
-        float f1 = MathHelper.cos(this.aM * 3.1415927F / 180.0F);
+        float f = MathHelper.sin(this.aM * Math.PI / 180.0F);
+        float f1 = MathHelper.cos(this.aM * Math.PI / 180.0F);
         float f2 = 0.1F;
         float f3 = 0.0F;
 

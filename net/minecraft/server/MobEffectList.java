@@ -11,8 +11,8 @@ public class MobEffectList {
 
     public static final MobEffectList[] byId = new MobEffectList[32];
     public static final MobEffectList b = null;
-    public static final MobEffectList FASTER_MOVEMENT = (new MobEffectList(1, false, 8171462)).b("potion.moveSpeed").b(0, 0).a(GenericAttributes.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2);
-    public static final MobEffectList SLOWER_MOVEMENT = (new MobEffectList(2, true, 5926017)).b("potion.moveSlowdown").b(1, 0).a(GenericAttributes.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2);
+    public static final MobEffectList FASTER_MOVEMENT = (new MobEffectList(1, false, 8171462)).b("potion.moveSpeed").b(0, 0).a(GenericAttributes.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.2, 2);
+    public static final MobEffectList SLOWER_MOVEMENT = (new MobEffectList(2, true, 5926017)).b("potion.moveSlowdown").b(1, 0).a(GenericAttributes.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15, 2);
     public static final MobEffectList FASTER_DIG = (new MobEffectList(3, false, 14270531)).b("potion.digSpeed").b(2, 0).a(1.5D);
     public static final MobEffectList SLOWER_DIG = (new MobEffectList(4, true, 4866583)).b("potion.digSlowDown").b(3, 0);
     public static final MobEffectList INCREASE_DAMAGE = (new MobEffectAttackDamage(5, false, 9643043)).b("potion.damageBoost").b(4, 0).a(GenericAttributes.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 3.0D, 2);

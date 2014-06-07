@@ -19,7 +19,7 @@ public class WorldGenMinable extends WorldGenerator {
     }
 
     public boolean a(World world, Random random, int i, int j, int k) {
-        float f = random.nextFloat() * 3.1415927F;
+        float f = random.nextFloat() * Math.PI;
         double d0 = (double) ((float) (i + 8) + MathHelper.sin(f) * (float) this.b / 8.0F);
         double d1 = (double) ((float) (i + 8) - MathHelper.sin(f) * (float) this.b / 8.0F);
         double d2 = (double) ((float) (k + 8) + MathHelper.cos(f) * (float) this.b / 8.0F);
@@ -32,8 +32,8 @@ public class WorldGenMinable extends WorldGenerator {
             double d7 = d4 + (d5 - d4) * (double) l / (double) this.b;
             double d8 = d2 + (d3 - d2) * (double) l / (double) this.b;
             double d9 = random.nextDouble() * (double) this.b / 16.0D;
-            double d10 = (double) (MathHelper.sin((float) l * 3.1415927F / (float) this.b) + 1.0F) * d9 + 1.0D;
-            double d11 = (double) (MathHelper.sin((float) l * 3.1415927F / (float) this.b) + 1.0F) * d9 + 1.0D;
+            double d10 = (double) (MathHelper.sin((float) l * Math.PI / (float) this.b) + 1.0F) * d9 + 1.0D;
+            double d11 = (double) (MathHelper.sin((float) l * Math.PI / (float) this.b) + 1.0F) * d9 + 1.0D;
             int i1 = MathHelper.floor(d6 - d10 / 2.0D);
             int j1 = MathHelper.floor(d7 - d11 / 2.0D);
             int k1 = MathHelper.floor(d8 - d10 / 2.0D);

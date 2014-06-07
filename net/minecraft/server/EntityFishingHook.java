@@ -43,16 +43,16 @@ public class EntityFishingHook extends Entity {
         this.owner.hookedFish = this;
         this.a(0.25F, 0.25F);
         this.setPositionRotation(entityhuman.locX, entityhuman.locY + 1.62D - (double) entityhuman.height, entityhuman.locZ, entityhuman.yaw, entityhuman.pitch);
-        this.locX -= (double) (MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * 0.16F);
-        this.locY -= 0.10000000149011612D;
-        this.locZ -= (double) (MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * 0.16F);
+        this.locX -= (double) (MathHelper.cos(this.yaw / 180.0F * Math.PI) * 0.16F);
+        this.locY -= 0.1;
+        this.locZ -= (double) (MathHelper.sin(this.yaw / 180.0F * Math.PI) * 0.16F);
         this.setPosition(this.locX, this.locY, this.locZ);
         this.height = 0.0F;
         float f = 0.4F;
 
-        this.motX = (double) (-MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * f);
-        this.motZ = (double) (MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * f);
-        this.motY = (double) (-MathHelper.sin(this.pitch / 180.0F * 3.1415927F) * f);
+        this.motX = (double) (-MathHelper.sin(this.yaw / 180.0F * Math.PI) * MathHelper.cos(this.pitch / 180.0F * Math.PI) * f);
+        this.motZ = (double) (MathHelper.cos(this.yaw / 180.0F * Math.PI) * MathHelper.cos(this.pitch / 180.0F * Math.PI) * f);
+        this.motY = (double) (-MathHelper.sin(this.pitch / 180.0F * Math.PI) * f);
         this.c(this.motX, this.motY, this.motZ, 1.5F, 1.0F);
     }
 
@@ -64,9 +64,9 @@ public class EntityFishingHook extends Entity {
         d0 /= (double) f2;
         d1 /= (double) f2;
         d2 /= (double) f2;
-        d0 += this.random.nextGaussian() * 0.007499999832361937D * (double) f1;
-        d1 += this.random.nextGaussian() * 0.007499999832361937D * (double) f1;
-        d2 += this.random.nextGaussian() * 0.007499999832361937D * (double) f1;
+        d0 += this.random.nextGaussian() * 0.0075 * (double) f1;
+        d1 += this.random.nextGaussian() * 0.0075 * (double) f1;
+        d2 += this.random.nextGaussian() * 0.0075 * (double) f1;
         d0 *= (double) f;
         d1 *= (double) f;
         d2 *= (double) f;
@@ -75,8 +75,8 @@ public class EntityFishingHook extends Entity {
         this.motZ = d2;
         float f3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
 
-        this.lastYaw = this.yaw = (float) (Math.atan2(d0, d2) * 180.0D / 3.1415927410125732D);
-        this.lastPitch = this.pitch = (float) (Math.atan2(d1, (double) f3) * 180.0D / 3.1415927410125732D);
+        this.lastYaw = this.yaw = (float) (Math.atan2(d0, d2) * 180.0D / Math.PI);
+        this.lastPitch = this.pitch = (float) (Math.atan2(d1, (double) f3) * 180.0D / Math.PI);
         this.av = 0;
     }
 
@@ -191,9 +191,9 @@ public class EntityFishingHook extends Entity {
                 this.move(this.motX, this.motY, this.motZ);
                 float f1 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 
-                this.yaw = (float) (Math.atan2(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
+                this.yaw = (float) (Math.atan2(this.motX, this.motZ) * 180.0D / Math.PI);
 
-                for (this.pitch = (float) (Math.atan2(this.motY, (double) f1) * 180.0D / 3.1415927410125732D); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
+                for (this.pitch = (float) (Math.atan2(this.motY, (double) f1) * 180.0D / Math.PI); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
                     ;
                 }
 
@@ -259,11 +259,11 @@ public class EntityFishingHook extends Entity {
                         if (this.az > 0) {
                             this.az -= k;
                             if (this.az <= 0) {
-                                this.motY -= 0.20000000298023224D;
+                                this.motY -= 0.2;
                                 this.makeSound("random.splash", 0.25F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
                                 f4 = (float) MathHelper.floor(this.boundingBox.b);
-                                worldserver.a("bubble", this.locX, (double) (f4 + 1.0F), this.locZ, (int) (1.0F + this.width * 20.0F), (double) this.width, 0.0D, (double) this.width, 0.20000000298023224D);
-                                worldserver.a("wake", this.locX, (double) (f4 + 1.0F), this.locZ, (int) (1.0F + this.width * 20.0F), (double) this.width, 0.0D, (double) this.width, 0.20000000298023224D);
+                                worldserver.a("bubble", this.locX, (double) (f4 + 1.0F), this.locZ, (int) (1.0F + this.width * 20.0F), (double) this.width, 0.0D, (double) this.width, 0.2);
+                                worldserver.a("wake", this.locX, (double) (f4 + 1.0F), this.locZ, (int) (1.0F + this.width * 20.0F), (double) this.width, 0.0D, (double) this.width, 0.2);
                                 this.ax = MathHelper.nextInt(this.random, 10, 30);
                             } else {
                                 this.aA = (float) ((double) this.aA + this.random.nextGaussian() * 4.0D);
@@ -274,7 +274,7 @@ public class EntityFishingHook extends Entity {
                                 d11 = (double) ((float) MathHelper.floor(this.boundingBox.b) + 1.0F);
                                 d10 = this.locZ + (double) (f3 * (float) this.az * 0.1F);
                                 if (this.random.nextFloat() < 0.15F) {
-                                    worldserver.a("bubble", d9, d11 - 0.10000000149011612D, d10, 1, (double) f5, 0.1D, (double) f3, 0.0D);
+                                    worldserver.a("bubble", d9, d11 - 0.1, d10, 1, (double) f5, 0.1D, (double) f3, 0.0D);
                                 }
 
                                 float f6 = f5 * 0.04F;
@@ -300,7 +300,7 @@ public class EntityFishingHook extends Entity {
                                 d9 = this.locX + (double) (MathHelper.sin(f5) * f3 * 0.1F);
                                 d11 = (double) ((float) MathHelper.floor(this.boundingBox.b) + 1.0F);
                                 d10 = this.locZ + (double) (MathHelper.cos(f5) * f3 * 0.1F);
-                                worldserver.a("splash", d9, d11, d10, 2 + this.random.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D);
+                                worldserver.a("splash", d9, d11, d10, 2 + this.random.nextInt(2), 0.1, 0.0D, 0.1, 0.0D);
                             }
 
                             if (this.ay <= 0) {
@@ -319,7 +319,7 @@ public class EntityFishingHook extends Entity {
                 }
 
                 d5 = d6 * 2.0D - 1.0D;
-                this.motY += 0.03999999910593033D * d5;
+                this.motY += 0.04 * d5;
                 if (d6 > 0.0D) {
                     f2 = (float) ((double) f2 * 0.9D);
                     this.motY *= 0.8D;

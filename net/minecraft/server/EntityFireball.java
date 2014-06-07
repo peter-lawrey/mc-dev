@@ -125,9 +125,9 @@ public abstract class EntityFireball extends Entity {
             this.locZ += this.motZ;
             float f1 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 
-            this.yaw = (float) (Math.atan2(this.motZ, this.motX) * 180.0D / 3.1415927410125732D) + 90.0F;
+            this.yaw = (float) (Math.atan2(this.motZ, this.motX) * 180.0D / Math.PI) + 90.0F;
 
-            for (this.pitch = (float) (Math.atan2((double) f1, this.motY) * 180.0D / 3.1415927410125732D) - 90.0F; this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
+            for (this.pitch = (float) (Math.atan2((double) f1, this.motY) * 180.0D / Math.PI) - 90.0F; this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
                 ;
             }
 

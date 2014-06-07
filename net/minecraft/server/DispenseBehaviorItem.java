@@ -29,11 +29,11 @@ public class DispenseBehaviorItem implements IDispenseBehavior {
         double d3 = world.random.nextDouble() * 0.1D + 0.2D;
 
         entityitem.motX = (double) enumfacing.getAdjacentX() * d3;
-        entityitem.motY = 0.20000000298023224D;
+        entityitem.motY = 0.2;
         entityitem.motZ = (double) enumfacing.getAdjacentZ() * d3;
-        entityitem.motX += world.random.nextGaussian() * 0.007499999832361937D * (double) i;
-        entityitem.motY += world.random.nextGaussian() * 0.007499999832361937D * (double) i;
-        entityitem.motZ += world.random.nextGaussian() * 0.007499999832361937D * (double) i;
+        entityitem.motX += world.random.nextGaussian() * 0.0075 * (double) i;
+        entityitem.motY += world.random.nextGaussian() * 0.0075 * (double) i;
+        entityitem.motZ += world.random.nextGaussian() * 0.0075 * (double) i;
         world.addEntity(entityitem);
     }
 

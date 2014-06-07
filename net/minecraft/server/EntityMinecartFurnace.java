@@ -73,15 +73,15 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
             this.b /= d0;
             double d1 = 0.05D;
 
-            this.motX *= 0.800000011920929D;
+            this.motX *= 0.8;
             this.motY *= 0.0D;
-            this.motZ *= 0.800000011920929D;
+            this.motZ *= 0.8;
             this.motX += this.a * d1;
             this.motZ += this.b * d1;
         } else {
-            this.motX *= 0.9800000190734863D;
+            this.motX *= 0.98;
             this.motY *= 0.0D;
-            this.motZ *= 0.9800000190734863D;
+            this.motZ *= 0.98;
         }
 
         super.i();

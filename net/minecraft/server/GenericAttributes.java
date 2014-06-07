@@ -13,7 +13,7 @@ public class GenericAttributes {
     public static final IAttribute a = (new AttributeRanged("generic.maxHealth", 20.0D, 0.0D, Double.MAX_VALUE)).a("Max Health").a(true);
     public static final IAttribute b = (new AttributeRanged("generic.followRange", 32.0D, 0.0D, 2048.0D)).a("Follow Range");
     public static final IAttribute c = (new AttributeRanged("generic.knockbackResistance", 0.0D, 0.0D, 1.0D)).a("Knockback Resistance");
-    public static final IAttribute d = (new AttributeRanged("generic.movementSpeed", 0.699999988079071D, 0.0D, Double.MAX_VALUE)).a("Movement Speed").a(true);
+    public static final IAttribute d = (new AttributeRanged("generic.movementSpeed", 0.7, 0.0D, Double.MAX_VALUE)).a("Movement Speed").a(true);
     public static final IAttribute e = new AttributeRanged("generic.attackDamage", 2.0D, 0.0D, Double.MAX_VALUE);
 
     public static NBTTagList a(AttributeMapBase attributemapbase) {

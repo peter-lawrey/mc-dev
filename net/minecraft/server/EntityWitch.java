@@ -151,7 +151,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
 
             entitypotion.pitch -= -20.0F;
             double d0 = entityliving.locX + entityliving.motX - this.locX;
-            double d1 = entityliving.locY + (double) entityliving.getHeadHeight() - 1.100000023841858D - this.locY;
+            double d1 = entityliving.locY + (double) entityliving.getHeadHeight() - 1.1 - this.locY;
             double d2 = entityliving.locZ + entityliving.motZ - this.locZ;
             float f1 = MathHelper.sqrt(d0 * d0 + d2 * d2);
 

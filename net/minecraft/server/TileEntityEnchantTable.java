@@ -57,29 +57,29 @@ public class TileEntityEnchantTable extends TileEntity {
             this.m -= 0.1F;
         }
 
-        while (this.o >= 3.1415927F) {
+        while (this.o >= Math.PI) {
             this.o -= 6.2831855F;
         }
 
-        while (this.o < -3.1415927F) {
+        while (this.o < -Math.PI) {
             this.o += 6.2831855F;
         }
 
-        while (this.q >= 3.1415927F) {
+        while (this.q >= Math.PI) {
             this.q -= 6.2831855F;
         }
 
-        while (this.q < -3.1415927F) {
+        while (this.q < -Math.PI) {
             this.q += 6.2831855F;
         }
 
         float f1;
 
-        for (f1 = this.q - this.o; f1 >= 3.1415927F; f1 -= 6.2831855F) {
+        for (f1 = this.q - this.o; f1 >= Math.PI; f1 -= 6.2831855F) {
             ;
         }
 
-        while (f1 < -3.1415927F) {
+        while (f1 < -Math.PI) {
             f1 += 6.2831855F;
         }
 

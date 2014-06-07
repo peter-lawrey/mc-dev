@@ -46,7 +46,7 @@ public class EntitySheep extends EntityAnimal {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(8.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.23000000417232513D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.23);
     }
 
     protected void c() {

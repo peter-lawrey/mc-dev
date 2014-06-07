@@ -74,7 +74,7 @@ public class EntitySlime extends EntityInsentient implements IMonster {
             i = this.getSize();
 
             for (int j = 0; j < i * 8; ++j) {
-                float f = this.random.nextFloat() * 3.1415927F * 2.0F;
+                float f = this.random.nextFloat() * Math.PI * 2.0F;
                 float f1 = this.random.nextFloat() * 0.5F + 0.5F;
                 float f2 = MathHelper.sin(f) * (float) i * 0.5F * f1;
                 float f3 = MathHelper.cos(f) * (float) i * 0.5F * f1;

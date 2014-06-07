@@ -176,7 +176,7 @@ public class ChunkProviderGenerate implements IChunkProvider {
         double d3 = 512.0D;
 
         this.g = this.b.a(this.g, i, k, 5, 5, 200.0D, 200.0D, 0.5D);
-        this.d = this.l.a(this.d, i, j, k, 5, 33, 5, 8.555150000000001D, 4.277575000000001D, 8.555150000000001D);
+        this.d = this.l.a(this.d, i, j, k, 5, 33, 5, 8.55515, 4.277575, 8.55515);
         this.e = this.j.a(this.e, i, j, k, 5, 33, 5, 684.412D, 684.412D, 684.412D);
         this.f = this.k.a(this.f, i, j, k, 5, 33, 5, 684.412D, 684.412D, 684.412D);
         boolean flag = false;

@@ -60,7 +60,7 @@ public class PathfinderGoalPassengerCarrotStick extends PathfinderGoal {
                 this.d = false;
             }
 
-            f1 += f1 * 1.15F * MathHelper.sin((float) this.e / (float) this.f * 3.1415927F);
+            f1 += f1 * 1.15F * MathHelper.sin((float) this.e / (float) this.f * Math.PI);
         }
 
         float f2 = 0.91F;
@@ -70,8 +70,8 @@ public class PathfinderGoalPassengerCarrotStick extends PathfinderGoal {
         }
 
         float f3 = 0.16277136F / (f2 * f2 * f2);
-        float f4 = MathHelper.sin(entitycreature.yaw * 3.1415927F / 180.0F);
-        float f5 = MathHelper.cos(entitycreature.yaw * 3.1415927F / 180.0F);
+        float f4 = MathHelper.sin(entitycreature.yaw * Math.PI / 180.0F);
+        float f5 = MathHelper.cos(entitycreature.yaw * Math.PI / 180.0F);
         float f6 = entitycreature.bk() * f3;
         float f7 = Math.max(f1, 1.0F);
 

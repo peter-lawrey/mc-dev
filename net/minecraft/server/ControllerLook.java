@@ -45,8 +45,8 @@ public class ControllerLook {
             double d1 = this.f - (this.a.locY + (double) this.a.getHeadHeight());
             double d2 = this.g - this.a.locZ;
             double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-            float f = (float) (Math.atan2(d2, d0) * 180.0D / 3.1415927410125732D) - 90.0F;
-            float f1 = (float) (-(Math.atan2(d1, d3) * 180.0D / 3.1415927410125732D));
+            float f = (float) (Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
+            float f1 = (float) (-(Math.atan2(d1, d3) * 180.0D / Math.PI));
 
             this.a.pitch = this.a(this.a.pitch, f1, this.c);
             this.a.aO = this.a(this.a.aO, f, this.b);

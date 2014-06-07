@@ -39,7 +39,7 @@ public class WorldGenCanyon extends WorldGenBase {
         }
 
         for (; l < i1; ++l) {
-            double d6 = 1.5D + (double) (MathHelper.sin((float) l * 3.1415927F / (float) i1) * f * 1.0F);
+            double d6 = 1.5D + (double) (MathHelper.sin((float) l * Math.PI / (float) i1) * f * 1.0F);
             double d7 = d6 * d3;
 
             d6 *= (double) random.nextFloat() * 0.25D + 0.75D;
@@ -178,7 +178,7 @@ public class WorldGenCanyon extends WorldGenBase {
             byte b0 = 1;
 
             for (int i1 = 0; i1 < b0; ++i1) {
-                float f = this.b.nextFloat() * 3.1415927F * 2.0F;
+                float f = this.b.nextFloat() * Math.PI * 2.0F;
                 float f1 = (this.b.nextFloat() - 0.5F) * 2.0F / 8.0F;
                 float f2 = (this.b.nextFloat() * 2.0F + this.b.nextFloat()) * 2.0F;
 

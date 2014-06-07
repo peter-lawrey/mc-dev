@@ -236,7 +236,7 @@ public abstract class Entity {
         if (this.isSprinting() && !this.L()) {
             int j = MathHelper.floor(this.locX);
 
-            i = MathHelper.floor(this.locY - 0.20000000298023224D - (double) this.height);
+            i = MathHelper.floor(this.locY - 0.2 - (double) this.height);
             int k = MathHelper.floor(this.locZ);
             Block block = this.world.getType(j, i, k);
 
@@ -331,7 +331,7 @@ public abstract class Entity {
             if (this.I) {
                 this.I = false;
                 d0 *= 0.25D;
-                d1 *= 0.05000000074505806D;
+                d1 *= 0.05;
                 d2 *= 0.25D;
                 this.motX = 0.0D;
                 this.motY = 0.0D;
@@ -528,7 +528,7 @@ public abstract class Entity {
             if (this.g_() && !flag && this.vehicle == null) {
                 int l = MathHelper.floor(this.locX);
 
-                k = MathHelper.floor(this.locY - 0.20000000298023224D - (double) this.height);
+                k = MathHelper.floor(this.locY - 0.2 - (double) this.height);
                 int i1 = MathHelper.floor(this.locZ);
                 Block block = this.world.getType(l, k, i1);
                 int j1 = this.world.getType(l, k - 1, i1).b();
@@ -546,7 +546,7 @@ public abstract class Entity {
                 if (this.Q > (float) this.d && block.getMaterial() != Material.AIR) {
                     this.d = (int) this.Q + 1;
                     if (this.L()) {
-                        float f = MathHelper.sqrt(this.motX * this.motX * 0.20000000298023224D + this.motY * this.motY + this.motZ * this.motZ * 0.20000000298023224D) * 0.35F;
+                        float f = MathHelper.sqrt(this.motX * this.motX * 0.2 + this.motY * this.motY + this.motZ * this.motZ * 0.2) * 0.35F;
 
                         if (f > 1.0F) {
                             f = 1.0F;
@@ -685,9 +685,9 @@ public abstract class Entity {
     }
 
     public boolean M() {
-        if (this.world.a(this.boundingBox.grow(0.0D, -0.4000000059604645D, 0.0D).shrink(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
+        if (this.world.a(this.boundingBox.grow(0.0D, -0.4, 0.0D).shrink(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
             if (!this.inWater && !this.justCreated) {
-                float f = MathHelper.sqrt(this.motX * this.motX * 0.20000000298023224D + this.motY * this.motY + this.motZ * this.motZ * 0.20000000298023224D) * 0.2F;
+                float f = MathHelper.sqrt(this.motX * this.motX * 0.2 + this.motY * this.motY + this.motZ * this.motZ * 0.2) * 0.2F;
 
                 if (f > 1.0F) {
                     f = 1.0F;
@@ -749,7 +749,7 @@ public abstract class Entity {
     }
 
     public boolean O() {
-        return this.world.a(this.boundingBox.grow(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.LAVA);
+        return this.world.a(this.boundingBox.grow(-0.1, -0.4, -0.1), Material.LAVA);
     }
 
     public void a(float f, float f1, float f2) {
@@ -764,8 +764,8 @@ public abstract class Entity {
             f3 = f2 / f3;
             f *= f3;
             f1 *= f3;
-            float f4 = MathHelper.sin(this.yaw * 3.1415927F / 180.0F);
-            float f5 = MathHelper.cos(this.yaw * 3.1415927F / 180.0F);
+            float f4 = MathHelper.sin(this.yaw * Math.PI / 180.0F);
+            float f5 = MathHelper.cos(this.yaw * Math.PI / 180.0F);
 
             this.motX += (double) (f * f5 - f1 * f4);
             this.motZ += (double) (f1 * f5 + f * f4);
@@ -860,7 +860,7 @@ public abstract class Entity {
             double d1 = entity.locZ - this.locZ;
             double d2 = MathHelper.a(d0, d1);
 
-            if (d2 >= 0.009999999776482582D) {
+            if (d2 >= 0.01) {
                 d2 = (double) MathHelper.sqrt(d2);
                 d0 /= d2;
                 d1 /= d2;
@@ -872,8 +872,8 @@ public abstract class Entity {
 
                 d0 *= d3;
                 d1 *= d3;
-                d0 *= 0.05000000074505806D;
-                d1 *= 0.05000000074505806D;
+                d0 *= 0.05;
+                d1 *= 0.05;
                 d0 *= (double) (1.0F - this.Y);
                 d1 *= (double) (1.0F - this.Y);
                 this.g(-d0, 0.0D, -d1);

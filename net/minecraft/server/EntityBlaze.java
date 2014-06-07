@@ -51,7 +51,7 @@ public class EntityBlaze extends EntityMonster {
             }
 
             if (this.bT() != null && this.bT().locY + (double) this.bT().getHeadHeight() > this.locY + (double) this.getHeadHeight() + (double) this.bp) {
-                this.motY += (0.30000001192092896D - this.motY) * 0.30000001192092896D;
+                this.motY += (0.3 - this.motY) * 0.3;
             }
         }
 
@@ -106,7 +106,7 @@ public class EntityBlaze extends EntityMonster {
                 }
             }
 
-            this.yaw = (float) (Math.atan2(d2, d0) * 180.0D / 3.1415927410125732D) - 90.0F;
+            this.yaw = (float) (Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
             this.bn = true;
         }
     }

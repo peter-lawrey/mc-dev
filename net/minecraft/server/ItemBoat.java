@@ -17,8 +17,8 @@ public class ItemBoat extends Item {
         double d1 = entityhuman.lastY + (entityhuman.locY - entityhuman.lastY) * (double) f + 1.62D - (double) entityhuman.height;
         double d2 = entityhuman.lastZ + (entityhuman.locZ - entityhuman.lastZ) * (double) f;
         Vec3D vec3d = Vec3D.a(d0, d1, d2);
-        float f3 = MathHelper.cos(-f2 * 0.017453292F - 3.1415927F);
-        float f4 = MathHelper.sin(-f2 * 0.017453292F - 3.1415927F);
+        float f3 = MathHelper.cos(-f2 * 0.017453292F - Math.PI);
+        float f4 = MathHelper.sin(-f2 * 0.017453292F - Math.PI);
         float f5 = -MathHelper.cos(-f1 * 0.017453292F);
         float f6 = MathHelper.sin(-f1 * 0.017453292F);
         float f7 = f4 * f5;

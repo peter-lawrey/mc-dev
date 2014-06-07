@@ -9,7 +9,7 @@ public class EntityMagmaCube extends EntitySlime {
 
     protected void aC() {
         super.aC();
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.20000000298023224D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.2);
     }
 
     public boolean canSpawn() {

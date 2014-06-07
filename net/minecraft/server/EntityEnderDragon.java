@@ -71,8 +71,8 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
         float f1;
 
         if (this.world.isStatic) {
-            f = MathHelper.cos(this.by * 3.1415927F * 2.0F);
-            f1 = MathHelper.cos(this.bx * 3.1415927F * 2.0F);
+            f = MathHelper.cos(this.by * Math.PI * 2.0F);
+            f1 = MathHelper.cos(this.bx * Math.PI * 2.0F);
             if (f1 <= -0.3F && f >= -0.3F) {
                 this.world.a(this.locX, this.locY, this.locZ, "mob.enderdragon.wings", 5.0F, 0.8F + this.random.nextFloat() * 0.3F, false);
             }
@@ -139,7 +139,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
                     double d4 = this.h - this.locX;
                     double d5 = this.bm - this.locZ;
                     double d6 = Math.sqrt(d4 * d4 + d5 * d5);
-                    double d7 = 0.4000000059604645D + d6 / 80.0D - 1.0D;
+                    double d7 = 0.4 + d6 / 80.0D - 1.0D;
 
                     if (d7 > 10.0D) {
                         d7 = 10.0D;
@@ -165,9 +165,9 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
                     d1 = (double) f3;
                 }
 
-                this.motY += d1 * 0.10000000149011612D;
+                this.motY += d1 * 0.1;
                 this.yaw = MathHelper.g(this.yaw);
-                double d8 = 180.0D - Math.atan2(d0, d2) * 180.0D / 3.1415927410125732D;
+                double d8 = 180.0D - Math.atan2(d0, d2) * 180.0D / Math.PI;
                 double d9 = MathHelper.g(d8 - (double) this.yaw);
 
                 if (d9 > 50.0D) {
@@ -179,7 +179,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
                 }
 
                 Vec3D vec3d = Vec3D.a(this.h - this.locX, this.i - this.locY, this.bm - this.locZ).a();
-                Vec3D vec3d1 = Vec3D.a((double) MathHelper.sin(this.yaw * 3.1415927F / 180.0F), this.motY, (double) (-MathHelper.cos(this.yaw * 3.1415927F / 180.0F))).a();
+                Vec3D vec3d1 = Vec3D.a((double) MathHelper.sin(this.yaw * Math.PI / 180.0F), this.motY, (double) (-MathHelper.cos(this.yaw * Math.PI / 180.0F))).a();
                 float f4 = (float) (vec3d1.b(vec3d) + 0.5D) / 1.5F;
 
                 if (f4 < 0.0F) {
@@ -194,14 +194,14 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
                     d10 = 40.0D;
                 }
 
-                this.bf = (float) ((double) this.bf + d9 * (0.699999988079071D / d10 / (double) f5));
+                this.bf = (float) ((double) this.bf + d9 * (0.7 / d10 / (double) f5));
                 this.yaw += this.bf * 0.1F;
                 float f6 = (float) (2.0D / (d10 + 1.0D));
                 float f7 = 0.06F;
 
                 this.a(0.0F, -1.0F, f7 * (f4 * f6 + (1.0F - f6)));
                 if (this.bA) {
-                    this.move(this.motX * 0.800000011920929D, this.motY * 0.800000011920929D, this.motZ * 0.800000011920929D);
+                    this.move(this.motX * 0.8, this.motY * 0.8, this.motZ * 0.8);
                 } else {
                     this.move(this.motX, this.motY, this.motZ);
                 }
@@ -212,7 +212,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
                 f8 = 0.8F + 0.15F * f8;
                 this.motX *= (double) f8;
                 this.motZ *= (double) f8;
-                this.motY *= 0.9100000262260437D;
+                this.motY *= 0.91;
             }
 
             this.aM = this.yaw;
@@ -226,10 +226,10 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
             this.bv.width = 4.0F;
             this.bw.length = 3.0F;
             this.bw.width = 4.0F;
-            f1 = (float) (this.b(5, 1.0F)[1] - this.b(10, 1.0F)[1]) * 10.0F / 180.0F * 3.1415927F;
+            f1 = (float) (this.b(5, 1.0F)[1] - this.b(10, 1.0F)[1]) * 10.0F / 180.0F * Math.PI;
             f2 = MathHelper.cos(f1);
             float f9 = -MathHelper.sin(f1);
-            float f10 = this.yaw * 3.1415927F / 180.0F;
+            float f10 = this.yaw * Math.PI / 180.0F;
             float f11 = MathHelper.sin(f10);
             float f12 = MathHelper.cos(f10);
 
@@ -248,8 +248,8 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
             double[] adouble = this.b(5, 1.0F);
             double[] adouble1 = this.b(0, 1.0F);
 
-            f3 = MathHelper.sin(this.yaw * 3.1415927F / 180.0F - this.bf * 0.01F);
-            float f13 = MathHelper.cos(this.yaw * 3.1415927F / 180.0F - this.bf * 0.01F);
+            f3 = MathHelper.sin(this.yaw * Math.PI / 180.0F - this.bf * 0.01F);
+            float f13 = MathHelper.cos(this.yaw * Math.PI / 180.0F - this.bf * 0.01F);
 
             this.bq.h();
             this.bq.setPositionRotation(this.locX + (double) (f3 * 5.5F * f2), this.locY + (adouble1[1] - adouble[1]) * 1.0D + (double) (f9 * 5.5F), this.locZ - (double) (f13 * 5.5F * f2), 0.0F, 0.0F);
@@ -270,7 +270,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
                 }
 
                 double[] adouble2 = this.b(12 + j * 2, 1.0F);
-                float f14 = this.yaw * 3.1415927F / 180.0F + this.b(adouble2[0] - adouble[0]) * 3.1415927F / 180.0F * 1.0F;
+                float f14 = this.yaw * Math.PI / 180.0F + this.b(adouble2[0] - adouble[0]) * Math.PI / 180.0F * 1.0F;
                 float f15 = MathHelper.sin(f14);
                 float f16 = MathHelper.cos(f14);
                 float f17 = 1.5F;
@@ -333,7 +333,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
                 double d3 = entity.locZ - d1;
                 double d4 = d2 * d2 + d3 * d3;
 
-                entity.g(d2 / d4 * 4.0D, 0.20000000298023224D, d3 / d4 * 4.0D);
+                entity.g(d2 / d4 * 4.0D, 0.2, d3 / d4 * 4.0D);
             }
         }
     }
@@ -418,7 +418,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
             f = f / 4.0F + 1.0F;
         }
 
-        float f1 = this.yaw * 3.1415927F / 180.0F;
+        float f1 = this.yaw * Math.PI / 180.0F;
         float f2 = MathHelper.sin(f1);
         float f3 = MathHelper.cos(f1);
 
@@ -470,7 +470,7 @@ public class EntityEnderDragon extends EntityInsentient implements IComplex, IMo
             }
         }
 
-        this.move(0.0D, 0.10000000149011612D, 0.0D);
+        this.move(0.0D, 0.1, 0.0D);
         this.aM = this.yaw += 20.0F;
         if (this.bB == 200 && !this.world.isStatic) {
             i = 2000;

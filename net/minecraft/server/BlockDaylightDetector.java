@@ -32,7 +32,7 @@ public class BlockDaylightDetector extends BlockContainer {
             int i1 = world.b(EnumSkyBlock.SKY, i, j, k) - world.j;
             float f = world.d(1.0F);
 
-            if (f < 3.1415927F) {
+            if (f < Math.PI) {
                 f += (0.0F - f) * 0.2F;
             } else {
                 f += (6.2831855F - f) * 0.2F;

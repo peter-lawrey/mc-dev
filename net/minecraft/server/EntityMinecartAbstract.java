@@ -83,7 +83,7 @@ public abstract class EntityMinecartAbstract extends Entity {
     }
 
     public double ad() {
-        return (double) this.length * 0.0D - 0.30000001192092896D;
+        return (double) this.length * 0.0D - 0.3;
     }
 
     public boolean damageEntity(DamageSource damagesource, float f) {
@@ -210,7 +210,7 @@ public abstract class EntityMinecartAbstract extends Entity {
             this.lastX = this.locX;
             this.lastY = this.locY;
             this.lastZ = this.locZ;
-            this.motY -= 0.03999999910593033D;
+            this.motY -= 0.04;
             int j = MathHelper.floor(this.locX);
 
             i = MathHelper.floor(this.locY);
@@ -241,7 +241,7 @@ public abstract class EntityMinecartAbstract extends Entity {
             double d7 = this.lastZ - this.locZ;
 
             if (d6 * d6 + d7 * d7 > 0.001D) {
-                this.yaw = (float) (Math.atan2(d7, d6) * 180.0D / 3.141592653589793D);
+                this.yaw = (float) (Math.atan2(d7, d6) * 180.0D / Math.PI);
                 if (this.a) {
                     this.yaw += 180.0F;
                 }
@@ -255,7 +255,7 @@ public abstract class EntityMinecartAbstract extends Entity {
             }
 
             this.b(this.yaw, this.pitch);
-            List list = this.world.getEntities(this, this.boundingBox.grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
+            List list = this.world.getEntities(this, this.boundingBox.grow(0.2, 0.0D, 0.2));
 
             if (list != null && !list.isEmpty()) {
                 for (int i1 = 0; i1 < list.size(); ++i1) {
@@ -304,9 +304,9 @@ public abstract class EntityMinecartAbstract extends Entity {
 
         this.move(this.motX, this.motY, this.motZ);
         if (!this.onGround) {
-            this.motX *= 0.949999988079071D;
-            this.motY *= 0.949999988079071D;
-            this.motZ *= 0.949999988079071D;
+            this.motX *= 0.95;
+            this.motY *= 0.95;
+            this.motZ *= 0.95;
         }
     }
 
@@ -374,8 +374,8 @@ public abstract class EntityMinecartAbstract extends Entity {
         if (this.passenger != null && this.passenger instanceof EntityLiving) {
             d7 = (double) ((EntityLiving) this.passenger).be;
             if (d7 > 0.0D) {
-                d8 = -Math.sin((double) (this.passenger.yaw * 3.1415927F / 180.0F));
-                d9 = Math.cos((double) (this.passenger.yaw * 3.1415927F / 180.0F));
+                d8 = -Math.sin((double) (this.passenger.yaw * Math.PI / 180.0F));
+                d9 = Math.cos((double) (this.passenger.yaw * Math.PI / 180.0F));
                 d10 = this.motX * this.motX + this.motZ * this.motZ;
                 if (d10 < 0.01D) {
                     this.motX += d8 * 0.1D;
@@ -504,13 +504,13 @@ public abstract class EntityMinecartAbstract extends Entity {
 
     protected void i() {
         if (this.passenger != null) {
-            this.motX *= 0.996999979019165D;
+            this.motX *= 0.997;
             this.motY *= 0.0D;
-            this.motZ *= 0.996999979019165D;
+            this.motZ *= 0.997;
         } else {
-            this.motX *= 0.9599999785423279D;
+            this.motX *= 0.96;
             this.motY *= 0.0D;
-            this.motZ *= 0.9599999785423279D;
+            this.motZ *= 0.96;
         }
     }
 
@@ -627,8 +627,8 @@ public abstract class EntityMinecartAbstract extends Entity {
 
                     d0 *= d3;
                     d1 *= d3;
-                    d0 *= 0.10000000149011612D;
-                    d1 *= 0.10000000149011612D;
+                    d0 *= 0.1;
+                    d1 *= 0.1;
                     d0 *= (double) (1.0F - this.Y);
                     d1 *= (double) (1.0F - this.Y);
                     d0 *= 0.5D;
@@ -637,10 +637,10 @@ public abstract class EntityMinecartAbstract extends Entity {
                         double d4 = entity.locX - this.locX;
                         double d5 = entity.locZ - this.locZ;
                         Vec3D vec3d = Vec3D.a(d4, 0.0D, d5).a();
-                        Vec3D vec3d1 = Vec3D.a((double) MathHelper.cos(this.yaw * 3.1415927F / 180.0F), 0.0D, (double) MathHelper.sin(this.yaw * 3.1415927F / 180.0F)).a();
+                        Vec3D vec3d1 = Vec3D.a((double) MathHelper.cos(this.yaw * Math.PI / 180.0F), 0.0D, (double) MathHelper.sin(this.yaw * Math.PI / 180.0F)).a();
                         double d6 = Math.abs(vec3d.b(vec3d1));
 
-                        if (d6 < 0.800000011920929D) {
+                        if (d6 < 0.8) {
                             return;
                         }
 
@@ -648,25 +648,25 @@ public abstract class EntityMinecartAbstract extends Entity {
                         double d8 = entity.motZ + this.motZ;
 
                         if (((EntityMinecartAbstract) entity).m() == 2 && this.m() != 2) {
-                            this.motX *= 0.20000000298023224D;
-                            this.motZ *= 0.20000000298023224D;
+                            this.motX *= 0.2;
+                            this.motZ *= 0.2;
                             this.g(entity.motX - d0, 0.0D, entity.motZ - d1);
-                            entity.motX *= 0.949999988079071D;
-                            entity.motZ *= 0.949999988079071D;
+                            entity.motX *= 0.95;
+                            entity.motZ *= 0.95;
                         } else if (((EntityMinecartAbstract) entity).m() != 2 && this.m() == 2) {
-                            entity.motX *= 0.20000000298023224D;
-                            entity.motZ *= 0.20000000298023224D;
+                            entity.motX *= 0.2;
+                            entity.motZ *= 0.2;
                             entity.g(this.motX + d0, 0.0D, this.motZ + d1);
-                            this.motX *= 0.949999988079071D;
-                            this.motZ *= 0.949999988079071D;
+                            this.motX *= 0.95;
+                            this.motZ *= 0.95;
                         } else {
                             d7 /= 2.0D;
                             d8 /= 2.0D;
-                            this.motX *= 0.20000000298023224D;
-                            this.motZ *= 0.20000000298023224D;
+                            this.motX *= 0.2;
+                            this.motZ *= 0.2;
                             this.g(d7 - d0, 0.0D, d8 - d1);
-                            entity.motX *= 0.20000000298023224D;
-                            entity.motZ *= 0.20000000298023224D;
+                            entity.motX *= 0.2;
+                            entity.motZ *= 0.2;
                             entity.g(d7 + d0, 0.0D, d8 + d1);
                         }
                     } else {

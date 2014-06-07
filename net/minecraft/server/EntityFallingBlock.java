@@ -63,11 +63,11 @@ public class EntityFallingBlock extends Entity {
             this.lastY = this.locY;
             this.lastZ = this.locZ;
             ++this.b;
-            this.motY -= 0.03999999910593033D;
+            this.motY -= 0.04;
             this.move(this.motX, this.motY, this.motZ);
-            this.motX *= 0.9800000190734863D;
-            this.motY *= 0.9800000190734863D;
-            this.motZ *= 0.9800000190734863D;
+            this.motX *= 0.98;
+            this.motY *= 0.98;
+            this.motZ *= 0.98;
             if (!this.world.isStatic) {
                 int i = MathHelper.floor(this.locX);
                 int j = MathHelper.floor(this.locY);
@@ -83,8 +83,8 @@ public class EntityFallingBlock extends Entity {
                 }
 
                 if (this.onGround) {
-                    this.motX *= 0.699999988079071D;
-                    this.motZ *= 0.699999988079071D;
+                    this.motX *= 0.7;
+                    this.motZ *= 0.7;
                     this.motY *= -0.5D;
                     if (this.world.getType(i, j, k) != Blocks.PISTON_MOVING) {
                         this.die();
@@ -146,7 +146,7 @@ public class EntityFallingBlock extends Entity {
                     entity.damageEntity(damagesource, (float) Math.min(MathHelper.d((float) i * this.fallHurtAmount), this.fallHurtMax));
                 }
 
-                if (flag && (double) this.random.nextFloat() < 0.05000000074505806D + (double) i * 0.05D) {
+                if (flag && (double) this.random.nextFloat() < 0.05 + (double) i * 0.05D) {
                     int j = this.data >> 2;
                     int k = this.data & 3;
 

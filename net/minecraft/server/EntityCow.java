@@ -23,7 +23,7 @@ public class EntityCow extends EntityAnimal {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(10.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.20000000298023224D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.2);
     }
 
     protected String t() {

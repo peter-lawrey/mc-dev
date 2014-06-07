@@ -61,7 +61,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
     }
 
     public void e() {
-        this.motY *= 0.6000000238418579D;
+        this.motY *= 0.6;
         double d0;
         double d1;
         double d2;
@@ -75,7 +75,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                         this.motY = 0.0D;
                     }
 
-                    this.motY += (0.5D - this.motY) * 0.6000000238418579D;
+                    this.motY += (0.5D - this.motY) * 0.6;
                 }
 
                 double d3 = entity.locX - this.locX;
@@ -84,13 +84,13 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                 d1 = d3 * d3 + d0 * d0;
                 if (d1 > 9.0D) {
                     d2 = (double) MathHelper.sqrt(d1);
-                    this.motX += (d3 / d2 * 0.5D - this.motX) * 0.6000000238418579D;
-                    this.motZ += (d0 / d2 * 0.5D - this.motZ) * 0.6000000238418579D;
+                    this.motX += (d3 / d2 * 0.5D - this.motX) * 0.6;
+                    this.motZ += (d0 / d2 * 0.5D - this.motZ) * 0.6;
                 }
             }
         }
 
-        if (this.motX * this.motX + this.motZ * this.motZ > 0.05000000074505806D) {
+        if (this.motX * this.motX + this.motZ * this.motZ > 0.05) {
             this.yaw = (float) Math.atan2(this.motZ, this.motX) * 57.295776F - 90.0F;
         }
 
@@ -121,8 +121,8 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                 double d5 = entity1.locY + (double) entity1.getHeadHeight() - d1;
                 double d6 = entity1.locZ - d2;
                 double d7 = (double) MathHelper.sqrt(d4 * d4 + d6 * d6);
-                float f = (float) (Math.atan2(d6, d4) * 180.0D / 3.1415927410125732D) - 90.0F;
-                float f1 = (float) (-(Math.atan2(d5, d7) * 180.0D / 3.1415927410125732D));
+                float f = (float) (Math.atan2(d6, d4) * 180.0D / Math.PI) - 90.0F;
+                float f1 = (float) (-(Math.atan2(d5, d7) * 180.0D / Math.PI));
 
                 this.bp[i] = this.b(this.bp[i], f1, 40.0F);
                 this.bq[i] = this.b(this.bq[i], f, 10.0F);
@@ -138,15 +138,15 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
             double d9 = this.v(j);
             double d10 = this.w(j);
 
-            this.world.addParticle("smoke", d8 + this.random.nextGaussian() * 0.30000001192092896D, d9 + this.random.nextGaussian() * 0.30000001192092896D, d10 + this.random.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D);
+            this.world.addParticle("smoke", d8 + this.random.nextGaussian() * 0.3, d9 + this.random.nextGaussian() * 0.3, d10 + this.random.nextGaussian() * 0.3, 0.0D, 0.0D, 0.0D);
             if (flag && this.world.random.nextInt(4) == 0) {
-                this.world.addParticle("mobSpell", d8 + this.random.nextGaussian() * 0.30000001192092896D, d9 + this.random.nextGaussian() * 0.30000001192092896D, d10 + this.random.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D);
+                this.world.addParticle("mobSpell", d8 + this.random.nextGaussian() * 0.3, d9 + this.random.nextGaussian() * 0.3, d10 + this.random.nextGaussian() * 0.3, 0.7, 0.7, 0.5D);
             }
         }
 
         if (this.ca() > 0) {
             for (j = 0; j < 3; ++j) {
-                this.world.addParticle("mobSpell", this.locX + this.random.nextGaussian() * 1.0D, this.locY + (double) (this.random.nextFloat() * 3.3F), this.locZ + this.random.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D);
+                this.world.addParticle("mobSpell", this.locX + this.random.nextGaussian() * 1.0D, this.locY + (double) (this.random.nextFloat() * 3.3F), this.locZ + this.random.nextGaussian() * 1.0D, 0.7, 0.7, 0.9);
             }
         }
     }
@@ -280,7 +280,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
         if (i <= 0) {
             return this.locX;
         } else {
-            float f = (this.aM + (float) (180 * (i - 1))) / 180.0F * 3.1415927F;
+            float f = (this.aM + (float) (180 * (i - 1))) / 180.0F * Math.PI;
             float f1 = MathHelper.cos(f);
 
             return this.locX + (double) f1 * 1.3D;
@@ -295,7 +295,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
         if (i <= 0) {
             return this.locZ;
         } else {
-            float f = (this.aM + (float) (180 * (i - 1))) / 180.0F * 3.1415927F;
+            float f = (this.aM + (float) (180 * (i - 1))) / 180.0F * Math.PI;
             float f1 = MathHelper.sin(f);
 
             return this.locZ + (double) f1 * 1.3D;
@@ -406,7 +406,7 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(300.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.6000000238418579D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.6);
         this.getAttributeInstance(GenericAttributes.b).setValue(40.0D);
     }
 

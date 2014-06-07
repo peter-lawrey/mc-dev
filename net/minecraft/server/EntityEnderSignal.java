@@ -52,9 +52,9 @@ public class EntityEnderSignal extends Entity {
         this.locZ += this.motZ;
         float f = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 
-        this.yaw = (float) (Math.atan2(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
+        this.yaw = (float) (Math.atan2(this.motX, this.motZ) * 180.0D / Math.PI);
 
-        for (this.pitch = (float) (Math.atan2(this.motY, (double) f) * 180.0D / 3.1415927410125732D); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
+        for (this.pitch = (float) (Math.atan2(this.motY, (double) f) * 180.0D / Math.PI); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
             ;
         }
 
@@ -87,9 +87,9 @@ public class EntityEnderSignal extends Entity {
             this.motX = Math.cos((double) f2) * d2;
             this.motZ = Math.sin((double) f2) * d2;
             if (this.locY < this.b) {
-                this.motY += (1.0D - this.motY) * 0.014999999664723873D;
+                this.motY += (1.0D - this.motY) * 0.015;
             } else {
-                this.motY += (-1.0D - this.motY) * 0.014999999664723873D;
+                this.motY += (-1.0D - this.motY) * 0.015;
             }
         }
 

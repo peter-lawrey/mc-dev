@@ -217,7 +217,7 @@ public class ChunkProviderHell implements IChunkProvider {
         int i2;
 
         for (i2 = 0; i2 < i1; ++i2) {
-            adouble1[i2] = Math.cos((double) i2 * 3.141592653589793D * 6.0D / (double) i1) * 2.0D;
+            adouble1[i2] = Math.cos((double) i2 * Math.PI * 6.0D / (double) i1) * 2.0D;
             double d2 = (double) i2;
 
             if (i2 > i1 / 2) {

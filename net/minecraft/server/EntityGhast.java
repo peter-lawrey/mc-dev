@@ -91,7 +91,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
             double d6 = this.target.boundingBox.b + (double) (this.target.length / 2.0F) - (this.locY + (double) (this.length / 2.0F));
             double d7 = this.target.locZ - this.locZ;
 
-            this.aM = this.yaw = -((float) Math.atan2(d5, d7)) * 180.0F / 3.1415927F;
+            this.aM = this.yaw = -((float) Math.atan2(d5, d7)) * 180.0F / Math.PI;
             if (this.p(this.target)) {
                 if (this.bp == 10) {
                     this.world.a((EntityHuman) null, 1007, (int) this.locX, (int) this.locY, (int) this.locZ, 0);
@@ -116,7 +116,7 @@ public class EntityGhast extends EntityFlying implements IMonster {
                 --this.bp;
             }
         } else {
-            this.aM = this.yaw = -((float) Math.atan2(this.motX, this.motZ)) * 180.0F / 3.1415927F;
+            this.aM = this.yaw = -((float) Math.atan2(this.motX, this.motZ)) * 180.0F / Math.PI;
             if (this.bp > 0) {
                 --this.bp;
             }

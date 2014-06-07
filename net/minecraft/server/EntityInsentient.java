@@ -467,8 +467,8 @@ public abstract class EntityInsentient extends EntityLiving {
         }
 
         double d3 = (double) MathHelper.sqrt(d0 * d0 + d1 * d1);
-        float f2 = (float) (Math.atan2(d1, d0) * 180.0D / 3.1415927410125732D) - 90.0F;
-        float f3 = (float) (-(Math.atan2(d2, d3) * 180.0D / 3.1415927410125732D));
+        float f2 = (float) (Math.atan2(d1, d0) * 180.0D / Math.PI) - 90.0F;
+        float f3 = (float) (-(Math.atan2(d2, d3) * 180.0D / Math.PI));
 
         this.pitch = this.b(this.pitch, f3, f1);
         this.yaw = this.b(this.yaw, f2, f);

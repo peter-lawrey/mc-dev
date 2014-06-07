@@ -74,7 +74,7 @@ public class EntityBat extends EntityAmbient {
             this.motX = this.motY = this.motZ = 0.0D;
             this.locY = (double) MathHelper.floor(this.locY) + 1.0D - (double) this.length;
         } else {
-            this.motY *= 0.6000000238418579D;
+            this.motY *= 0.6;
         }
     }
 
@@ -107,10 +107,10 @@ public class EntityBat extends EntityAmbient {
             double d1 = (double) this.h.y + 0.1D - this.locY;
             double d2 = (double) this.h.z + 0.5D - this.locZ;
 
-            this.motX += (Math.signum(d0) * 0.5D - this.motX) * 0.10000000149011612D;
-            this.motY += (Math.signum(d1) * 0.699999988079071D - this.motY) * 0.10000000149011612D;
-            this.motZ += (Math.signum(d2) * 0.5D - this.motZ) * 0.10000000149011612D;
-            float f = (float) (Math.atan2(this.motZ, this.motX) * 180.0D / 3.1415927410125732D) - 90.0F;
+            this.motX += (Math.signum(d0) * 0.5D - this.motX) * 0.1;
+            this.motY += (Math.signum(d1) * 0.7 - this.motY) * 0.1;
+            this.motZ += (Math.signum(d2) * 0.5D - this.motZ) * 0.1;
+            float f = (float) (Math.atan2(this.motZ, this.motX) * 180.0D / Math.PI) - 90.0F;
             float f1 = MathHelper.g(f - this.yaw);
 
             this.be = 0.5F;

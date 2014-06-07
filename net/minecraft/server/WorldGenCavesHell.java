@@ -33,7 +33,7 @@ public class WorldGenCavesHell extends WorldGenBase {
         int k1 = random.nextInt(i1 / 2) + i1 / 4;
 
         for (boolean flag1 = random.nextInt(6) == 0; l < i1; ++l) {
-            double d6 = 1.5D + (double) (MathHelper.sin((float) l * 3.1415927F / (float) i1) * f * 1.0F);
+            double d6 = 1.5D + (double) (MathHelper.sin((float) l * Math.PI / (float) i1) * f * 1.0F);
             double d7 = d6 * d3;
             float f5 = MathHelper.cos(f2);
             float f6 = MathHelper.sin(f2);
@@ -177,7 +177,7 @@ public class WorldGenCavesHell extends WorldGenBase {
             }
 
             for (int l1 = 0; l1 < k1; ++l1) {
-                float f = this.b.nextFloat() * 3.1415927F * 2.0F;
+                float f = this.b.nextFloat() * Math.PI * 2.0F;
                 float f1 = (this.b.nextFloat() - 0.5F) * 2.0F / 8.0F;
                 float f2 = this.b.nextFloat() * 2.0F + this.b.nextFloat();
 

@@ -467,7 +467,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
         super.aC();
         this.bb().b(attributeJumpStrength);
         this.getAttributeInstance(GenericAttributes.a).setValue(53.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.22499999403953552D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.225);
     }
 
     public int bB() {
@@ -884,8 +884,8 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
                 this.j(true);
                 this.al = true;
                 if (f1 > 0.0F) {
-                    float f2 = MathHelper.sin(this.yaw * 3.1415927F / 180.0F);
-                    float f3 = MathHelper.cos(this.yaw * 3.1415927F / 180.0F);
+                    float f2 = MathHelper.sin(this.yaw * Math.PI / 180.0F);
+                    float f3 = MathHelper.cos(this.yaw * Math.PI / 180.0F);
 
                     this.motX += (double) (-0.4F * f2 * this.bt);
                     this.motZ += (double) (0.4F * f3 * this.bt);
@@ -1123,11 +1123,11 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
             if (j == 0) {
                 this.getAttributeInstance(GenericAttributes.d).setValue(this.cX());
             } else {
-                this.getAttributeInstance(GenericAttributes.d).setValue(0.17499999701976776D);
+                this.getAttributeInstance(GenericAttributes.d).setValue(0.175);
             }
         } else {
             this.getAttributeInstance(GenericAttributes.a).setValue(15.0D);
-            this.getAttributeInstance(GenericAttributes.d).setValue(0.20000000298023224D);
+            this.getAttributeInstance(GenericAttributes.d).setValue(0.2);
         }
 
         if (j != 2 && j != 1) {
@@ -1164,8 +1164,8 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
     public void ab() {
         super.ab();
         if (this.bM > 0.0F) {
-            float f = MathHelper.sin(this.aM * 3.1415927F / 180.0F);
-            float f1 = MathHelper.cos(this.aM * 3.1415927F / 180.0F);
+            float f = MathHelper.sin(this.aM * Math.PI / 180.0F);
+            float f1 = MathHelper.cos(this.aM * Math.PI / 180.0F);
             float f2 = 0.7F * this.bM;
             float f3 = 0.15F * this.bM;
 
@@ -1181,11 +1181,11 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
     }
 
     private double cW() {
-        return 0.4000000059604645D + this.random.nextDouble() * 0.2D + this.random.nextDouble() * 0.2D + this.random.nextDouble() * 0.2D;
+        return 0.4 + this.random.nextDouble() * 0.2D + this.random.nextDouble() * 0.2D + this.random.nextDouble() * 0.2D;
     }
 
     private double cX() {
-        return (0.44999998807907104D + this.random.nextDouble() * 0.3D + this.random.nextDouble() * 0.3D + this.random.nextDouble() * 0.3D) * 0.25D;
+        return (0.45 + this.random.nextDouble() * 0.3D + this.random.nextDouble() * 0.3D + this.random.nextDouble() * 0.3D) * 0.25D;
     }
 
     public static boolean a(Item item) {

@@ -10,7 +10,7 @@ import java.util.UUID;
 public abstract class EntityLiving extends Entity {
 
     private static final UUID b = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
-    private static final AttributeModifier c = (new AttributeModifier(b, "Sprinting speed boost", 0.30000001192092896D, 2)).a(false);
+    private static final AttributeModifier c = (new AttributeModifier(b, "Sprinting speed boost", 0.3, 2)).a(false);
     private AttributeMapBase d;
     private final CombatTracker combatTracker = new CombatTracker(this);
     private final HashMap effects = new HashMap();
@@ -77,7 +77,7 @@ public abstract class EntityLiving extends Entity {
         this.aL = (float) (Math.random() + 1.0D) * 0.01F;
         this.setPosition(this.locX, this.locY, this.locZ);
         this.aK = (float) Math.random() * 12398.0F;
-        this.yaw = (float) (Math.random() * 3.1415927410125732D * 2.0D);
+        this.yaw = (float) (Math.random() * Math.PI * 2.0D);
         this.aO = this.yaw;
         this.W = 0.5F;
     }
@@ -94,7 +94,7 @@ public abstract class EntityLiving extends Entity {
         this.bb().b(GenericAttributes.c);
         this.bb().b(GenericAttributes.d);
         if (!this.bj()) {
-            this.getAttributeInstance(GenericAttributes.d).setValue(0.10000000149011612D);
+            this.getAttributeInstance(GenericAttributes.d).setValue(0.1);
         }
     }
 
@@ -105,7 +105,7 @@ public abstract class EntityLiving extends Entity {
 
         if (flag && this.fallDistance > 0.0F) {
             int i = MathHelper.floor(this.locX);
-            int j = MathHelper.floor(this.locY - 0.20000000298023224D - (double) this.height);
+            int j = MathHelper.floor(this.locY - 0.2 - (double) this.height);
             int k = MathHelper.floor(this.locZ);
             Block block = this.world.getType(i, j, k);
 
@@ -626,7 +626,7 @@ public abstract class EntityLiving extends Entity {
                             d0 = (Math.random() - Math.random()) * 0.01D;
                         }
 
-                        this.az = (float) (Math.atan2(d1, d0) * 180.0D / 3.1415927410125732D) - this.yaw;
+                        this.az = (float) (Math.atan2(d1, d0) * 180.0D / Math.PI) - this.yaw;
                         this.a(entity, f, d0, d1);
                     } else {
                         this.az = (float) ((int) (Math.random() * 2.0D) * 180);
@@ -660,12 +660,12 @@ public abstract class EntityLiving extends Entity {
         for (int i = 0; i < 5; ++i) {
             Vec3D vec3d = Vec3D.a(((double) this.random.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
 
-            vec3d.a(-this.pitch * 3.1415927F / 180.0F);
-            vec3d.b(-this.yaw * 3.1415927F / 180.0F);
+            vec3d.a(-this.pitch * Math.PI / 180.0F);
+            vec3d.b(-this.yaw * Math.PI / 180.0F);
             Vec3D vec3d1 = Vec3D.a(((double) this.random.nextFloat() - 0.5D) * 0.3D, (double) (-this.random.nextFloat()) * 0.6D - 0.3D, 0.6D);
 
-            vec3d1.a(-this.pitch * 3.1415927F / 180.0F);
-            vec3d1.b(-this.yaw * 3.1415927F / 180.0F);
+            vec3d1.a(-this.pitch * Math.PI / 180.0F);
+            vec3d1.b(-this.yaw * Math.PI / 180.0F);
             vec3d1 = vec3d1.add(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
             this.world.addParticle("iconcrack_" + Item.b(itemstack.getItem()), vec3d1.a, vec3d1.b, vec3d1.c, vec3d.a, vec3d.b + 0.05D, vec3d.c);
         }
@@ -722,8 +722,8 @@ public abstract class EntityLiving extends Entity {
             this.motX -= d0 / (double) f1 * (double) f2;
             this.motY += (double) f2;
             this.motZ -= d1 / (double) f1 * (double) f2;
-            if (this.motY > 0.4000000059604645D) {
-                this.motY = 0.4000000059604645D;
+            if (this.motY > 0.4) {
+                this.motY = 0.4;
             }
         }
     }
@@ -763,7 +763,7 @@ public abstract class EntityLiving extends Entity {
             this.makeSound(this.o(i), 1.0F, 1.0F);
             this.damageEntity(DamageSource.FALL, (float) i);
             int j = MathHelper.floor(this.locX);
-            int k = MathHelper.floor(this.locY - 0.20000000298023224D - (double) this.height);
+            int k = MathHelper.floor(this.locY - 0.2 - (double) this.height);
             int l = MathHelper.floor(this.locZ);
             Block block = this.world.getType(j, k, l);
 
@@ -1007,7 +1007,7 @@ public abstract class EntityLiving extends Entity {
     }
 
     protected void bi() {
-        this.motY = 0.41999998688697815D;
+        this.motY = 0.42;
         if (this.hasEffect(MobEffectList.JUMP)) {
             this.motY += (double) ((float) (this.getEffect(MobEffectList.JUMP).getAmplifier() + 1) * 0.1F);
         }
@@ -1029,12 +1029,12 @@ public abstract class EntityLiving extends Entity {
             d0 = this.locY;
             this.a(f, f1, this.bj() ? 0.04F : 0.02F);
             this.move(this.motX, this.motY, this.motZ);
-            this.motX *= 0.800000011920929D;
-            this.motY *= 0.800000011920929D;
-            this.motZ *= 0.800000011920929D;
+            this.motX *= 0.8;
+            this.motY *= 0.8;
+            this.motZ *= 0.8;
             this.motY -= 0.02D;
-            if (this.positionChanged && this.c(this.motX, this.motY + 0.6000000238418579D - this.locY + d0, this.motZ)) {
-                this.motY = 0.30000001192092896D;
+            if (this.positionChanged && this.c(this.motX, this.motY + 0.6 - this.locY + d0, this.motZ)) {
+                this.motY = 0.3;
             }
         } else if (this.O() && (!(this instanceof EntityHuman) || !((EntityHuman) this).abilities.isFlying)) {
             d0 = this.locY;
@@ -1044,8 +1044,8 @@ public abstract class EntityLiving extends Entity {
             this.motY *= 0.5D;
             this.motZ *= 0.5D;
             this.motY -= 0.02D;
-            if (this.positionChanged && this.c(this.motX, this.motY + 0.6000000238418579D - this.locY + d0, this.motZ)) {
-                this.motY = 0.30000001192092896D;
+            if (this.positionChanged && this.c(this.motX, this.motY + 0.6 - this.locY + d0, this.motZ)) {
+                this.motY = 0.3;
             }
         } else {
             float f2 = 0.91F;
@@ -1115,7 +1115,7 @@ public abstract class EntityLiving extends Entity {
                 this.motY -= 0.08D;
             }
 
-            this.motY *= 0.9800000190734863D;
+            this.motY *= 0.98;
             this.motX *= (double) f2;
             this.motZ *= (double) f2;
         }
@@ -1206,7 +1206,7 @@ public abstract class EntityLiving extends Entity {
         if (f > 0.0025000002F) {
             f3 = 1.0F;
             f2 = (float) Math.sqrt((double) f) * 3.0F;
-            f1 = (float) Math.atan2(d1, d0) * 180.0F / 3.1415927F - 90.0F;
+            f1 = (float) Math.atan2(d1, d0) * 180.0F / Math.PI - 90.0F;
         }
 
         if (this.aD > 0.0F) {
@@ -1348,7 +1348,7 @@ public abstract class EntityLiving extends Entity {
                     this.bq = 10;
                 }
             } else {
-                this.motY += 0.03999999910593033D;
+                this.motY += 0.04;
             }
         } else {
             this.bq = 0;
@@ -1372,7 +1372,7 @@ public abstract class EntityLiving extends Entity {
     protected void bm() {}
 
     protected void bn() {
-        List list = this.world.getEntities(this, this.boundingBox.grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
+        List list = this.world.getEntities(this, this.boundingBox.grow(0.2, 0.0D, 0.2));
 
         if (list != null && !list.isEmpty()) {
             for (int i = 0; i < list.size(); ++i) {
@@ -1439,16 +1439,16 @@ public abstract class EntityLiving extends Entity {
         float f4;
 
         if (f == 1.0F) {
-            f1 = MathHelper.cos(-this.yaw * 0.017453292F - 3.1415927F);
-            f2 = MathHelper.sin(-this.yaw * 0.017453292F - 3.1415927F);
+            f1 = MathHelper.cos(-this.yaw * 0.017453292F - Math.PI);
+            f2 = MathHelper.sin(-this.yaw * 0.017453292F - Math.PI);
             f3 = -MathHelper.cos(-this.pitch * 0.017453292F);
             f4 = MathHelper.sin(-this.pitch * 0.017453292F);
             return Vec3D.a((double) (f2 * f3), (double) f4, (double) (f1 * f3));
         } else {
             f1 = this.lastPitch + (this.pitch - this.lastPitch) * f;
             f2 = this.lastYaw + (this.yaw - this.lastYaw) * f;
-            f3 = MathHelper.cos(-f2 * 0.017453292F - 3.1415927F);
-            f4 = MathHelper.sin(-f2 * 0.017453292F - 3.1415927F);
+            f3 = MathHelper.cos(-f2 * 0.017453292F - Math.PI);
+            f4 = MathHelper.sin(-f2 * 0.017453292F - Math.PI);
             float f5 = -MathHelper.cos(-f1 * 0.017453292F);
             float f6 = MathHelper.sin(-f1 * 0.017453292F);
 

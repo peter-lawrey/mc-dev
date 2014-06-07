@@ -5,7 +5,7 @@ import java.util.UUID;
 public class EntityEnderman extends EntityMonster {
 
     private static final UUID bp = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
-    private static final AttributeModifier bq = (new AttributeModifier(bp, "Attacking speed boost", 6.199999809265137D, 0)).a(false);
+    private static final AttributeModifier bq = (new AttributeModifier(bp, "Attacking speed boost", 6.2, 0)).a(false);
     private static boolean[] br = new boolean[256];
     private int bs;
     private int bt;
@@ -21,7 +21,7 @@ public class EntityEnderman extends EntityMonster {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(40.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.30000001192092896D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.3);
         this.getAttributeInstance(GenericAttributes.e).setValue(7.0D);
     }
 

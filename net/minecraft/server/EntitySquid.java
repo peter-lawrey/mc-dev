@@ -61,7 +61,7 @@ public class EntitySquid extends EntityWaterAnimal {
     }
 
     public boolean L() {
-        return this.world.a(this.boundingBox.grow(0.0D, -0.6000000238418579D, 0.0D), Material.WATER, (Entity) this);
+        return this.world.a(this.boundingBox.grow(0.0D, -0.6, 0.0D), Material.WATER, (Entity) this);
     }
 
     public void e() {
@@ -81,9 +81,9 @@ public class EntitySquid extends EntityWaterAnimal {
         if (this.L()) {
             float f;
 
-            if (this.bt < 3.1415927F) {
-                f = this.bt / 3.1415927F;
-                this.bv = MathHelper.sin(f * f * 3.1415927F) * 3.1415927F * 0.25F;
+            if (this.bt < Math.PI) {
+                f = this.bt / Math.PI;
+                this.bv = MathHelper.sin(f * f * Math.PI) * Math.PI * 0.25F;
                 if ((double) f > 0.75D) {
                     this.bx = 1.0F;
                     this.bz = 1.0F;
@@ -103,16 +103,16 @@ public class EntitySquid extends EntityWaterAnimal {
             }
 
             f = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
-            this.aM += (-((float) Math.atan2(this.motX, this.motZ)) * 180.0F / 3.1415927F - this.aM) * 0.1F;
+            this.aM += (-((float) Math.atan2(this.motX, this.motZ)) * 180.0F / Math.PI - this.aM) * 0.1F;
             this.yaw = this.aM;
-            this.br += 3.1415927F * this.bz * 1.5F;
-            this.bp += (-((float) Math.atan2((double) f, this.motY)) * 180.0F / 3.1415927F - this.bp) * 0.1F;
+            this.br += Math.PI * this.bz * 1.5F;
+            this.bp += (-((float) Math.atan2((double) f, this.motY)) * 180.0F / Math.PI - this.bp) * 0.1F;
         } else {
-            this.bv = MathHelper.abs(MathHelper.sin(this.bt)) * 3.1415927F * 0.25F;
+            this.bv = MathHelper.abs(MathHelper.sin(this.bt)) * Math.PI * 0.25F;
             if (!this.world.isStatic) {
                 this.motX = 0.0D;
                 this.motY -= 0.08D;
-                this.motY *= 0.9800000190734863D;
+                this.motY *= 0.98;
                 this.motZ = 0.0D;
             }
 
@@ -129,7 +129,7 @@ public class EntitySquid extends EntityWaterAnimal {
         if (this.aU > 100) {
             this.bA = this.bB = this.bC = 0.0F;
         } else if (this.random.nextInt(50) == 0 || !this.inWater || this.bA == 0.0F && this.bB == 0.0F && this.bC == 0.0F) {
-            float f = this.random.nextFloat() * 3.1415927F * 2.0F;
+            float f = this.random.nextFloat() * Math.PI * 2.0F;
 
             this.bA = MathHelper.cos(f) * 0.2F;
             this.bB = -0.1F + this.random.nextFloat() * 0.2F;

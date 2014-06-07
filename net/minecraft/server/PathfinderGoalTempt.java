@@ -43,7 +43,7 @@ public class PathfinderGoalTempt extends PathfinderGoal {
     public boolean b() {
         if (this.l) {
             if (this.a.f(this.h) < 36.0D) {
-                if (this.h.e(this.c, this.d, this.e) > 0.010000000000000002D) {
+                if (this.h.e(this.c, this.d, this.e) > 0.01) {
                     return false;
                 }
 

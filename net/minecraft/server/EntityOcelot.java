@@ -58,7 +58,7 @@ public class EntityOcelot extends EntityTameableAnimal {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(10.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.30000001192092896D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.3);
     }
 
     protected void b(float f) {}

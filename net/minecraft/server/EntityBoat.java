@@ -56,7 +56,7 @@ public class EntityBoat extends Entity {
     }
 
     public double ad() {
-        return (double) this.length * 0.0D - 0.30000001192092896D;
+        return (double) this.length * 0.0D - 0.3;
     }
 
     public boolean damageEntity(DamageSource damagesource, float f) {
@@ -122,9 +122,9 @@ public class EntityBoat extends Entity {
         double d5;
         int j;
 
-        if (d3 > 0.26249999999999996D) {
-            d4 = Math.cos((double) this.yaw * 3.141592653589793D / 180.0D);
-            d5 = Math.sin((double) this.yaw * 3.141592653589793D / 180.0D);
+        if (d3 > 0.2625) {
+            d4 = Math.cos((double) this.yaw * Math.PI / 180.0D);
+            d5 = Math.sin((double) this.yaw * Math.PI / 180.0D);
 
             for (j = 0; (double) j < 1.0D + d3 * 60.0D; ++j) {
                 double d6 = (double) (this.random.nextFloat() * 2.0F - 1.0F);
@@ -169,28 +169,28 @@ public class EntityBoat extends Entity {
                     this.motZ *= 0.5D;
                 }
 
-                this.motX *= 0.9900000095367432D;
-                this.motY *= 0.949999988079071D;
-                this.motZ *= 0.9900000095367432D;
+                this.motX *= 0.99;
+                this.motY *= 0.95;
+                this.motZ *= 0.99;
             }
         } else {
             if (d0 < 1.0D) {
                 d4 = d0 * 2.0D - 1.0D;
-                this.motY += 0.03999999910593033D * d4;
+                this.motY += 0.04 * d4;
             } else {
                 if (this.motY < 0.0D) {
                     this.motY /= 2.0D;
                 }
 
-                this.motY += 0.007000000216066837D;
+                this.motY += 0.007;
             }
 
             if (this.passenger != null && this.passenger instanceof EntityLiving) {
                 EntityLiving entityliving = (EntityLiving) this.passenger;
                 float f = this.passenger.yaw + -entityliving.bd * 90.0F;
 
-                this.motX += -Math.sin((double) (f * 3.1415927F / 180.0F)) * this.b * (double) entityliving.be * 0.05000000074505806D;
-                this.motZ += Math.cos((double) (f * 3.1415927F / 180.0F)) * this.b * (double) entityliving.be * 0.05000000074505806D;
+                this.motX += -Math.sin((double) (f * Math.PI / 180.0F)) * this.b * (double) entityliving.be * 0.05;
+                this.motZ += Math.cos((double) (f * Math.PI / 180.0F)) * this.b * (double) entityliving.be * 0.05;
             }
 
             d4 = Math.sqrt(this.motX * this.motX + this.motZ * this.motZ);
@@ -254,9 +254,9 @@ public class EntityBoat extends Entity {
                     }
                 }
             } else {
-                this.motX *= 0.9900000095367432D;
-                this.motY *= 0.949999988079071D;
-                this.motZ *= 0.9900000095367432D;
+                this.motX *= 0.99;
+                this.motY *= 0.95;
+                this.motZ *= 0.99;
             }
 
             this.pitch = 0.0F;
@@ -264,7 +264,7 @@ public class EntityBoat extends Entity {
             d10 = this.lastX - this.locX;
             d11 = this.lastZ - this.locZ;
             if (d10 * d10 + d11 * d11 > 0.001D) {
-                d5 = (double) ((float) (Math.atan2(d11, d10) * 180.0D / 3.141592653589793D));
+                d5 = (double) ((float) (Math.atan2(d11, d10) * 180.0D / Math.PI));
             }
 
             double d12 = MathHelper.g(d5 - (double) this.yaw);
@@ -280,7 +280,7 @@ public class EntityBoat extends Entity {
             this.yaw = (float) ((double) this.yaw + d12);
             this.b(this.yaw, this.pitch);
             if (!this.world.isStatic) {
-                List list = this.world.getEntities(this, this.boundingBox.grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
+                List list = this.world.getEntities(this, this.boundingBox.grow(0.2, 0.0D, 0.2));
 
                 if (list != null && !list.isEmpty()) {
                     for (int k1 = 0; k1 < list.size(); ++k1) {
@@ -301,8 +301,8 @@ public class EntityBoat extends Entity {
 
     public void ab() {
         if (this.passenger != null) {
-            double d0 = Math.cos((double) this.yaw * 3.141592653589793D / 180.0D) * 0.4D;
-            double d1 = Math.sin((double) this.yaw * 3.141592653589793D / 180.0D) * 0.4D;
+            double d0 = Math.cos((double) this.yaw * Math.PI / 180.0D) * 0.4D;
+            double d1 = Math.sin((double) this.yaw * Math.PI / 180.0D) * 0.4D;
 
             this.passenger.setPosition(this.locX + d0, this.locY + this.ad() + this.passenger.ac(), this.locZ + d1);
         }

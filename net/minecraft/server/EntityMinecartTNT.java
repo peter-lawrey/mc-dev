@@ -32,7 +32,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
         if (this.positionChanged) {
             double d0 = this.motX * this.motX + this.motZ * this.motZ;
 
-            if (d0 >= 0.009999999776482582D) {
+            if (d0 >= 0.01) {
                 this.c(d0);
             }
         }
@@ -46,7 +46,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
             this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
         }
 
-        if (damagesource.o() || damagesource.isExplosion() || d0 >= 0.009999999776482582D) {
+        if (damagesource.o() || damagesource.isExplosion() || d0 >= 0.01) {
             this.c(d0);
         }
     }

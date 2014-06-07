@@ -14,9 +14,9 @@ public abstract class EntityFlying extends EntityInsentient {
         if (this.L()) {
             this.a(f, f1, 0.02F);
             this.move(this.motX, this.motY, this.motZ);
-            this.motX *= 0.800000011920929D;
-            this.motY *= 0.800000011920929D;
-            this.motZ *= 0.800000011920929D;
+            this.motX *= 0.8;
+            this.motY *= 0.8;
+            this.motZ *= 0.8;
         } else if (this.O()) {
             this.a(f, f1, 0.02F);
             this.move(this.motX, this.motY, this.motZ);

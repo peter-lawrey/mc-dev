@@ -20,7 +20,7 @@ public class EntitySnowman extends EntityGolem implements IRangedEntity {
     protected void aC() {
         super.aC();
         this.getAttributeInstance(GenericAttributes.a).setValue(4.0D);
-        this.getAttributeInstance(GenericAttributes.d).setValue(0.20000000298023224D);
+        this.getAttributeInstance(GenericAttributes.d).setValue(0.2);
     }
 
     public void e() {
@@ -62,7 +62,7 @@ public class EntitySnowman extends EntityGolem implements IRangedEntity {
     public void a(EntityLiving entityliving, float f) {
         EntitySnowball entitysnowball = new EntitySnowball(this.world, this);
         double d0 = entityliving.locX - this.locX;
-        double d1 = entityliving.locY + (double) entityliving.getHeadHeight() - 1.100000023841858D - entitysnowball.locY;
+        double d1 = entityliving.locY + (double) entityliving.getHeadHeight() - 1.1 - entitysnowball.locY;
         double d2 = entityliving.locZ - this.locZ;
         float f1 = MathHelper.sqrt(d0 * d0 + d2 * d2) * 0.2F;
 

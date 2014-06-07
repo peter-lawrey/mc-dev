@@ -85,7 +85,7 @@ public class BiomeMesa extends BiomeBase {
         Block block = Blocks.STAINED_HARDENED_CLAY;
         Block block1 = this.ak;
         int i1 = (int) (d0 / 3.0D + 3.0D + random.nextDouble() * 0.25D);
-        boolean flag1 = Math.cos(d0 / 3.0D * 3.141592653589793D) > 0.0D;
+        boolean flag1 = Math.cos(d0 / 3.0D * Math.PI) > 0.0D;
         int j1 = -1;
         boolean flag2 = false;
         int k1 = ablock.length / 256;

@@ -16,9 +16,9 @@ public class EntityExperienceOrb extends Entity {
         this.height = this.length / 2.0F;
         this.setPosition(d0, d1, d2);
         this.yaw = (float) (Math.random() * 360.0D);
-        this.motX = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D) * 2.0F);
+        this.motX = (double) ((float) (Math.random() * 0.2 - 0.1) * 2.0F);
         this.motY = (double) ((float) (Math.random() * 0.2D) * 2.0F);
-        this.motZ = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D) * 2.0F);
+        this.motZ = (double) ((float) (Math.random() * 0.2 - 0.1) * 2.0F);
         this.value = i;
     }
 
@@ -43,9 +43,9 @@ public class EntityExperienceOrb extends Entity {
         this.lastX = this.locX;
         this.lastY = this.locY;
         this.lastZ = this.locZ;
-        this.motY -= 0.029999999329447746D;
+        this.motY -= 0.03;
         if (this.world.getType(MathHelper.floor(this.locX), MathHelper.floor(this.locY), MathHelper.floor(this.locZ)).getMaterial() == Material.LAVA) {
-            this.motY = 0.20000000298023224D;
+            this.motY = 0.2;
             this.motX = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
             this.motZ = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
             this.makeSound("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
@@ -85,10 +85,10 @@ public class EntityExperienceOrb extends Entity {
         }
 
         this.motX *= (double) f;
-        this.motY *= 0.9800000190734863D;
+        this.motY *= 0.98;
         this.motZ *= (double) f;
         if (this.onGround) {
-            this.motY *= -0.8999999761581421D;
+            this.motY *= -0.9;
         }
 
         ++this.a;
